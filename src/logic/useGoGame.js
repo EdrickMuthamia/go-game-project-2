@@ -1,4 +1,3 @@
-//// src/logic/useGoGame.js
 import { useState } from "react";
 
 function useGoGame() {
