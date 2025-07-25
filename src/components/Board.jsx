@@ -1,13 +1,11 @@
-// src/components/Board.jsx
 import React from "react";
 import Intersection from "./Intersection";
 import "../styles/board.css";
-import useGoGame from "../logic/useGoGame"; // Corrected import
+import useGoGame from "../logic/useGoGame";
 
 function Board() {
   const { board, currentPlayer, placeStone } = useGoGame();
 
-  // 9x9 grid represented as a 2D array
   const grid = Array(9)
     .fill()
     .map((_, row) =>
@@ -16,7 +14,6 @@ function Board() {
         .map((_, col) => ({ row, col }))
     );
 
-  // Calculate scores by counting stones
   const blackScore = board.flat().filter((value) => value === "black").length;
   const whiteScore = board.flat().filter((value) => value === "white").length;
 

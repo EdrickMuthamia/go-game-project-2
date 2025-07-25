@@ -1,8 +1,7 @@
 import React from "react";
 
 function Intersection({ row, col, value, onClick }) {
-  
-  // Determine edge classes for proper line rendering
+
   const getEdgeClasses = () => {
     const classes = [];
     if (row === 0) classes.push('top');
