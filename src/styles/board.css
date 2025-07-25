@@ -1,53 +1,143 @@
-/*board.css */
+/* src/board.css */
 .board {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #D4A574; /* Traditional Go board wood color */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   margin: 700px;
   margin-top: auto;
   margin-bottom: auto;
-  background-color: #d2b48c;
-  padding: 10px;
-  border: 2px solid #800080;
-  box-sizing: content-box;
+  box-sizing: border-box;
+  min-width: 600px;
 }
 
+/* Board grid container */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 0;
+  background-color: #D4A574;
+  padding: 20px;
+  position: relative;
+}
+
+/* Each row of the board */
 .row {
   display: flex;
 }
 
+/* Each intersection point */
 .intersection {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #000;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
-  position: relative;
-  cursor: pointer;
-}
-.star {
-  position: absolute;
-   width: 72px;
-  height: 96px;
-  font-size: 100px;
-  color: black;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: transparent;
 }
 
- .stone {
+/* Draw the grid lines */
+.intersection::before,
+.intersection::after {
+  content: "";
   position: absolute;
-  width: 40px;
-  height: 40px;
-  font-size: 30px;
+  background-color: #000;
+  z-index: 1;
+}
+
+/* Vertical lines */
+.intersection::before {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* Horizontal lines */
+.intersection::after {
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Hide lines on edges */
+.intersection.top::before {
+  height: 50%;
+  top: 50%;
+}
+
+.intersection.bottom::before {
+  height: 50%;
+  top: 0;
+}
+
+.intersection.left::after {
+  width: 50%;
+  left: 50%;
+}
+
+.intersection.right::after {
+  width: 50%;
+  left: 0;
+}
+
+
+/* Stones */
+.stone {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Black stones */
+.stone.black {
+  background-color: #1a1a1a;
+  background: radial-gradient(circle at 30% 30%, #4a4a4a, #1a1a1a);
+  border: 1px solid #000;
+}
+
+/* White stones */
+.stone.white {
+  background-color: #f8f8f8;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0);
+  border: 1px solid #ccc;
+}
+
+/* Scoreboard above the board */
+.scoreboard {
+  margin-bottom: 30px;
+  padding: 20px 35px;
+  background-color: rgba(240, 230, 210, 0.95);
+  border: 3px solid #8B4513;
+  border-radius: 12px;
+  width: max-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scoreboard p {
+  margin: 10px 0;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2c1810;
+  text-align: center;
 }

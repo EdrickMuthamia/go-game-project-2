@@ -1,18 +1,22 @@
 import React from "react";
 
-function Intersection({ row, col, onClick, value }) {
-      // Star points for a 9x9 Go board (0-indexed: (2,2), (2,6), (4,4), (6,2), (6,6))
-  const hasStar =
-    (row === 1 && col === 2) ||
-    (row === 1 && col === 7) ||
-    (row === 6 && col === 2) ||
-    (row === 6 && col === 7);
+function Intersection({ row, col, value, onClick }) {
+  
+  // Determine edge classes for proper line rendering
+  const getEdgeClasses = () => {
+    const classes = [];
+    if (row === 0) classes.push('top');
+    if (row === 8) classes.push('bottom');
+    if (col === 0) classes.push('left');
+    if (col === 8) classes.push('right');
+    return classes.join(' ');
+  };
+
 
   return (
-    <div className="intersection" onClick={onClick}>
-      {hasStar && <span className="star">⋅</span>} {/* Fixed star point */}
-      {value === "black" && <span className="stone">●</span>} {/* Black stone */}
-      {value === "white" && <span className="stone" style={{ color: "white" }}>○</span>} {/* White stone */}
+    <div className={`intersection ${getEdgeClasses()}`} onClick={onClick}>
+      {value === "black" && <div className="stone black"></div>}
+      {value === "white" && <div className="stone white"></div>}
     </div>
   );
 }
