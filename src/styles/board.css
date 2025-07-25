@@ -29,16 +29,16 @@
 }
 .star {
   position: absolute;
-   width: 62px;
-  height: 82px;
-  font-size: 20px;
+   width: 72px;
+  height: 96px;
+  font-size: 100px;
   color: black;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.stone {
+ .stone {
   position: absolute;
   width: 40px;
   height: 40px;
