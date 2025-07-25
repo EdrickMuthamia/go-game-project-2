@@ -27,4 +27,3 @@ function useGoGame() {
 }
 
 export default useGoGame;
-
