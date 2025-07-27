@@ -1,4 +1,4 @@
-class GoGameEngine {
+class gameEngine {
   constructor() {
     this.board = this.createEmptyBoard();
     this.currentPlayer = "black";
@@ -204,5 +204,5 @@ class GoGameEngine {
   }
 }
 
-export default GoGameEngine;
+export default gameEngine;
 
