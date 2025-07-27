@@ -5,8 +5,8 @@
   align-items: center;
   background-color: #D4A574; /* Traditional Go board wood color */
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  /* box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); */
   margin: 700px;
   margin-top: auto;
   margin-bottom: auto;
@@ -127,9 +127,9 @@
 .scoreboard {
   margin-bottom: 30px;
   padding: 20px 35px;
-  background-color: rgba(240, 230, 210, 0.95);
-  border: 3px solid #8B4513;
-  border-radius: 12px;
+  background-color: rgba(153, 152, 150, 0.95);
+  border: 3px solid #131b8b;
+  border-radius: 8px;
   width: max-content;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -140,4 +140,32 @@
   font-weight: bold;
   color: #2c1810;
   text-align: center;
+}
+
+/* Game control buttons */
+.game-controls {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.control-button {
+  padding: 8px 16px;
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.control-button:hover {
+  background-color: #A0522D;
+}
+
+.control-button:active {
+  background-color: #654321;
 }
