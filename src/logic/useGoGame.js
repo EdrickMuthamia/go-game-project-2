@@ -1,5 +1,5 @@
-//// src/logic/useGoGame.js
-import { useState } from "react";
+import { useState, useRef } from "react";
+import GoGameEngine from "./gameEngine.js";
 
 function useGoGame() {
   // Store the game engine instance
@@ -38,6 +38,19 @@ function useGoGame() {
     setCapturedStones(engine.getCapturedStones());
   };
 
+  // Undo the last move
+  const undoMove = () => {
+    const engine = gameStore.current;
+    const didUndo = engine.restoreGameState();
+
+    if (didUndo) {
+      setBoard(engine.getBoard());
+      setCurrentPlayer(engine.getCurrentPlayer());
+      setCapturedStones(engine.getCapturedStones());
+    }
+
+    return didUndo;
+  };
 
   // Get current score
   const getScore = () => {
