@@ -4,14 +4,8 @@ import "../styles/board.css";
 import useGoGame from "../logic/useGoGame";
 
 function Board() {
-  const { 
-    board, 
-    currentPlayer, 
-    capturedStones, 
-    placeStone,
-    getScore, 
-    undoMove 
-  } = useGoGame();
+  const { board, currentPlayer, capturedStones, placeStone, getScore } =
+    useGoGame();
 
   // Create the 9x9 grid structure
   const grid = Array(9)
@@ -32,16 +26,12 @@ function Board() {
         <p>Black Score: {score.black}</p>
         <p>White Score: {score.white}</p>
         <p>Current Player: {currentPlayer}</p>
-        <p>Captured - Black: {capturedStones.black}, White: {capturedStones.white}</p>
-        
-        {/* Game control buttons */}
-        <div className="game-controls">
-          <button onClick={undoMove} className="control-button">
-            Undo Move
-          </button>
-        </div>
+        <p>
+          Captured - Black: {capturedStones.black}, White:{" "}
+          {capturedStones.white}
+        </p>
       </div>
-      
+
       {/* The game board */}
       {grid.map((row, rowIndex) => (
         <div className="row" key={rowIndex}>
