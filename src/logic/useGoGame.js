@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import GoGameEngine from "./gameEngine.js";
+//// src/logic/useGoGame.js
+import { useState } from "react";
 
 function useGoGame() {
   // Store the game engine instance
