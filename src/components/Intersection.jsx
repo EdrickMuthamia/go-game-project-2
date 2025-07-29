@@ -20,4 +20,4 @@ function Intersection({ row, col, value, onClick }) {
   );
 }
 
-export default Intersection; 
+export default Intersection;
